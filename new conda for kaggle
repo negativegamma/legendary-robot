@@ -1,0 +1,20 @@
+conda create --name kaggle_tf python=3.8
+conda activate kaggle_tf
+
+pip install jupyter
+pip install nb-conda
+pip install spyder 
+pip install tensorflow 
+
+
+
+
+### libraries 
+
+!pip install numpy
+!pip install pandas
+
+!pip install matplotlib
+!pip install xgboost
+!pip install seaborn
+
