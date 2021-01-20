@@ -1,0 +1,42 @@
+### Download unix drivers 
+#### Check cudnn support: https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html
+### Check cuda compatibility: https://docs.nvidia.com/deploy/cuda-compatibility/index.html
+#### cuda install guide: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+
+
+https://www.nvidia.com/en-us/drivers/unix/.
+
+## run script , use latest  ex: 
+$ sudo sh NVIDIA-Linux-x86_64-xxx.xx.run
+
+
+
+#### download cuda to match TF version 
+### Check https://www.tensorflow.org/install/source#linux 
+### For 3090, I used TF 2.4.0,  which supports CUDA 11.0 and CUdnn 8.0 
+
+
+$ wget http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda_11.0.2_450.51.05_linux.run
+
+
+#install sans-driver
+$ sudo sh cuda_11.0.2_450.51.05_linux.run
+
+
+#### edit PATH vars 
+$ gedit .bashrc 
+
+### append to end 
+export PATH=/usr/local/cuda-11.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH
+
+
+
+### https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html
+#### Download Cudnn 
+$ tar -xzvf cudnn-11.0-linux-x64-v8.0.2.39.tgz
+
+$ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+$ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+
